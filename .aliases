@@ -1,0 +1,66 @@
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+if [ "$(uname)" == "FreeBSD" ] && [ -n "$(command -v gnuls)" ]; then
+    alias ls='gnuls --color=auto'
+fi
+
+# Colors for ls/dir/grep
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# I cannot live without these
+alias ll='ls -l'
+alias la='ls -A'
+alias l='ls -CF'
+alias lla='ls -la'
+
+# Obviously
+alias more='less'
+
+# I like human-readable!
+alias df='df -h'
+
+# Find large files
+alias lrg='find . -type f 2>/dev/null -size +50000k -exec ls -lh {} \; | awk '"'"'{ print $9 ": " $5 }'"'"'' # What the fuck?
+
+# For package management
+alias pkg-in="sudo $PKG install"
+alias pkg-rm="sudo $PKG remove"
+alias pkg-up="sudo $PKG update"
+alias pkg-ug="sudo $PKG upgrade"
+alias pkg-ar="sudo $PKG autoremove" 
+
+# Git shortcuts
+alias gco='git commit'
+alias gdi='git diff'
+alias gcl='git clone'
+alias gpu='git push'
+alias gll='git pull'
+alias gadd='git add'
+alias gcam='git commit -am'
+
+alias visudo='sudo EDITOR=nano visudo'
+alias crontab='EDITOR=nano crontab'
+
+alias ..='cd ..'
+alias ~='cd'
+
+alias root='sudo -i'
