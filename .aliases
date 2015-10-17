@@ -40,7 +40,7 @@ alias more='less'
 alias df='df -h'
 
 # Find large files
-alias lrg='find . -type f 2>/dev/null -size +50000k -exec ls -lh {} \; | awk "{ print $9 ": " $5 }"'
+alias lrg='find . -type f 2>/dev/null -size +50000k -exec ls -lh {} \; | awk '"'"'{ print $9 ": " $5 }'"'"''
 
 # For package management
 alias pkg-in='sudo $PKG install'
