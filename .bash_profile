@@ -33,6 +33,10 @@ if [ -d "/usr/bin/mono" ]; then
     export PATH="$PATH:/usr/bin/mono"
 fi
 
+if [ "$USER" == "root" ]; then
+    export PATH="$PATH:/usr/local/bin"
+fi
+
 # Sets the PKG env for alias shortcut.
 if [ -n "$(command -v yum)" ] && ! [ -n "$(command -v dnf)" ]; then
     export PKG="yum"
