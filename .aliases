@@ -13,7 +13,7 @@
 
 # -*- mode: shell;-*-
 
-if [ $(uname) == 'FreeBSD' ] && [ -n $(command -v gnuls) ]; then
+if [ "$(uname)" == "FreeBSD" ] && [ -n "$(command -v gnuls)" ]; then
     alias ls='gnuls --color=auto'
 fi
 
