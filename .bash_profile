@@ -50,16 +50,6 @@ elif [ -n "$(command -v pacman)" ]; then
     export PKG="pacman"
 fi
 
-# Allows ssh-agent to work correctly on Cygwin
-if [ "$CYGWIN" == "1" ]; then
-    SSHAGENT=/usr/bin/ssh-agent
-    SSHAGENTARGS="-s"
-    if [ -z "$SSH_AUTH_SOCK" -a -x "$SSHAGENT" ]; then
-        eval `$SSHAGENT $SSHAGENTARGS` >> /dev/null
-        trap "kill $SSH_AGENT_PID" 0
-    fi
-fi
-
 # Wine
 if [ -n "$(command -v wine)" ]; then
     export C="$HOME/.wine/drive_c/"
