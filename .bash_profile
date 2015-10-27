@@ -11,24 +11,20 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-# set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-# If Go is installed, initialize the environment variables involved
 if [ -d "/usr/local/go" ]; then
     export PATH="$PATH:/usr/local/go/bin"
     export GOPATH="$HOME/code/go"
     export GOBIN="$GOPATH/bin"
 fi
 
-# The same for Racket
 if [ -d "/usr/racket" ]; then
     export PATH="$PATH:/usr/racket/bin"
 fi
 
-# The same for Mono
 if [ -d "/usr/bin/mono" ]; then
     export PATH="$PATH:/usr/bin/mono"
 fi
@@ -50,12 +46,10 @@ elif [ -n "$(command -v pacman)" ]; then
     export PKG="pacman"
 fi
 
-# Wine
 if [ -n "$(command -v wine)" ]; then
     export C="$HOME/.wine/drive_c/"
 fi
 
-# Includes my lovingly-crafted .bashrc
 if [ -f "$HOME/.bashrc" ]; then
     source "$HOME/.bashrc"
 fi
