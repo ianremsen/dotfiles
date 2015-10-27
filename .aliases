@@ -17,7 +17,6 @@ if [ "$(uname)" == "FreeBSD" ] && [ -n "$(command -v gnuls)" ]; then
     alias ls='gnuls --color=auto'
 fi
 
-# Colors for ls/dir/grep
 if  [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval $(dircolors -b ~/.dircolors) || eval $(dircolors -b)
     alias ls='ls --color=auto'
@@ -28,21 +27,14 @@ if  [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# I cannot live without these
 alias ll='ls -l'
 alias la='ls -A'
 alias lla='ls -la'
 
-# Obviously
-alias more='less'
-
-# I like human-readable!
 alias df='df -h'
 
-# Find large files
 alias lrg='find . -type f 2>/dev/null -size +50000k -exec ls -lh {} \; | awk '"'"'{ print $9 ": " $5 }'"'"''
 
-# For package management
 alias pkg-in='sudo $PKG install'
 alias pkg-rm='sudo $PKG remove'
 alias pkg-up='sudo $PKG update'
@@ -51,8 +43,6 @@ alias pkg-ar='sudo $PKG autoremove'
 alias pkg-se='sudo $PKG search'
 alias pkg-du='sudo $PKG dist-upgrade'
 alias pkg-u='pkg-up; pkg-ug'
-
-# specific
 
 if [ "$PKG" == "pacman" ]; then
     alias pkg-in='sudo $PKG -S'
@@ -70,7 +60,6 @@ elif [ "$PKG" == "yum" ] || [ "$PKG" == "dnf" ]; then
     unalias pkg-du
 fi
 
-# Git shortcuts
 alias gco='git commit -am'
 alias gdi='git diff'
 alias gcl='git clone'
