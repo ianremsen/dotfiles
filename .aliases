@@ -71,6 +71,7 @@ alias gadd='git add'
 alias visudo='sudo EDITOR=nano visudo'
 alias crontab='EDITOR=nano crontab'
 
-alias root='sudo -i'
+alias rm='rm -v'
+alias rmi='rm -i'
 
 alias gop='xdg-open'
