@@ -25,3 +25,10 @@ unalias pkg-u
 unalias pkg-ug
 unalias pkg-up
 
+if [ -d "$HOME/code/NES" ]; then
+    export NES=$HOME/code/NES
+    export NESC=$NES/bin
+    export NESP=$NES/Projects
+    export PATH=$PATH:$NESC
+    alias cl='cl65 -L $NES/lib -t nes -I $NES/include'
+fi

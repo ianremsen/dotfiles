@@ -11,7 +11,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-if [ -d "$HOME/bin" ] ; then
+if [ -d "$HOME/bin" ]; then
     PATH="$HOME/bin:$PATH"
 fi
 
@@ -34,7 +34,7 @@ if [ "$USER" == "root" ]; then
 fi
 
 # Sets the PKG env for alias shortcut.
-if [ -n "$(command -v yum)" ] && ! [ -n "$(command -v dnf)" ]; then
+if   [ -n "$(command -v yum)" ] && ! [ -n "$(command -v dnf)" ]; then
     export PKG="yum"
 elif [ -n "$(command -v dnf)" ]; then
     export PKG="dnf"
