@@ -21,10 +21,6 @@ if [ -f ~/.bashspec ]; then
     source ~/.bashspec
 fi
 
-if [ "$CYGWIN" == "1" ]; then
-    source ~/.cygwin
-fi
-
 HISTCONTROL=ignoreboth
 shopt -s histappend
 HISTSIZE=1000
@@ -58,11 +54,6 @@ if [ "$USER" == "root" ]; then
     export PS1="\[\e[01;35m\]\u\[\e[0m\]\[\e[01;37m\]@\h\[\e[0m\]\[\e[00;37m\]:[\[\e[0m\]\[\e[00;33m\]\w\[\e[0m\]\[\e[00;37m\]]: \[\e[0m\]"
 fi
 
-# Includes the aliases file
-if [ -f ~/.aliases ]; then
-    source ~/.aliases
-fi
-
 if ! shopt -oq posix; then
     if [ -f /usr/share/bash-completion/bash_completion ]; then
         source /usr/share/bash-completion/bash_completion
@@ -70,3 +61,14 @@ if ! shopt -oq posix; then
         source /etc/bash_completion
     fi
 fi
+
+if [ "$CYGWIN" == "1" ]; then
+    source ~/.cygwin
+    exit
+fi
+
+# Includes the aliases file
+if [ -f ~/.aliases ]; then
+    source ~/.aliases
+fi
+

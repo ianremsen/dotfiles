@@ -9,6 +9,8 @@ if [ -z "$SSH_AUTH_SOCK" -a -x "$SSHAGENT" ]; then
     trap "kill $SSH_AGENT_PID" 0       
 fi
 
+source ~/.aliases
+
 alias setup='setup -K http://cygwinports.org/ports.gpg'
 
 unalias gop
