@@ -10,3 +10,16 @@ if [ -z "$SSH_AUTH_SOCK" -a -x "$SSHAGENT" ]; then
 fi
 
 alias setup='setup -K http://cygwinports.org/ports.gpg'
+
+unalias gop
+unalias visudo
+unalias crontab
+unalias pkg-ar
+unalias pkg-du
+unalias pkg-in
+unalias pkg-rm
+unalias pkg-se
+unalias pkg-u
+unalias pkg-ug
+unalias pkg-up
+
