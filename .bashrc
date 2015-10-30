@@ -62,9 +62,9 @@ if ! shopt -oq posix; then
     fi
 fi
 
-if [ "$CYGWIN" == "1" ]; then
+if [ $(uname -a | awk '{print $7;}') == "Cygwin" ] && [ -f ~/.cygwin ]; then
     source ~/.cygwin
-    exit
+    return
 fi
 
 # Includes the aliases file
