@@ -32,3 +32,7 @@ if [ -d "$HOME/code/NES" ]; then
     export PATH=$PATH:$NESC
     alias cl='cl65 -L $NES/lib -t nes -I $NES/include'
 fi
+
+if [ -d "/cygdrive/c/Go" ]; then
+    export GOPATH=$HOME/code/go
+fi
