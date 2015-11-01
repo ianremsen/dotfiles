@@ -34,5 +34,6 @@ if [ -d "$HOME/code/NES" ]; then
 fi
 
 if [ -d "/cygdrive/c/Go" ]; then
+    export PATH=$PATH:/cygdrive/c/Go
     export GOPATH=$HOME/code/go
 fi
