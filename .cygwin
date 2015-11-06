@@ -25,6 +25,9 @@ unalias pkg-u
 unalias pkg-ug
 unalias pkg-up
 
+alias cyg-in='setup -qgdnP'
+alias cyg-rm='setup -qgdnx'
+
 if [ -d "$HOME/code/NES" ]; then
     export NES=$HOME/code/NES
     export PATH=$PATH:$NES/bin
