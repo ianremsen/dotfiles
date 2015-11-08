@@ -24,7 +24,7 @@ bind-key C-b set-option -g prefix `
 
 unbind %
 bind | split-window -h
-bind - split-window -v
+bind _ split-window -v
 
 set -g mouse-select-pane on
 set -g pane-border-fg white
