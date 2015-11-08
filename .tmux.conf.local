@@ -40,3 +40,41 @@ set -g status-left-length 60
 set -g status-right-length 60
 set -g status-left ' #[fg=blue,bold]#[bg=black] #(whoami)@#(hostname) '
 set -g status-right '#[fg=white,bold] %a %b %d • %H:%M '
+
+unbind <
+unbind >
+unbind -
+unbind =
+bind -r < resize-pane -L 10
+bind -r > resize-pane -R 10
+bind -r - resize-pane -D 10
+bind -r = resize-pane -U 10
+
+unbind ,
+bind , command-prompt -p "Rename window to:" "rename-window '%%'"
+
+unbind ^A
+bind ^A last-window
+
+unbind q
+bind q confirm-before "kill-pane"
+
+unbind w
+bind w confirm-before "kill-window"
+
+unbind n
+unbind N
+bind n next-window
+bind N previous-window
+
+unbind l
+bind l refresh-client
+
+unbind c
+bind c new-window
+
+unbind '"'
+bind '"' choose-window
+
+unbind Tab
+bind Tab select-pane -R
