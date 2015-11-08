@@ -41,7 +41,6 @@ set -g status-right-length 60
 set -g status-left ' #[fg=red,bold]#[bg=black] #(whoami)@#(hostname) '
 set -g status-right '#[fg=white,bold] %a %b %d • %H:%M '
 
-
 unbind <
 unbind >
 unbind -
