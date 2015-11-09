@@ -28,12 +28,6 @@ unalias pkg-up
 alias cyg-in='setup -qgdnP'
 alias cyg-rm='setup -qgdnx'
 
-if [ -d "$HOME/code/NES" ]; then
-    export NES=$HOME/code/NES
-    export PATH=$PATH:$NES/bin
-    alias cl65='cl65 -L $NES/lib -t nes -I $NES/include'
-fi
-
 if [ -d "/cygdrive/c/Go" ]; then
     export PATH=$PATH:/cygdrive/c/Go/bin
     export GOPATH=$HOME/code/go
