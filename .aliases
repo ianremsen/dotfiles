@@ -14,64 +14,66 @@
 # -*- mode: shell;-*-
 
 if [ "$(uname)" == "FreeBSD" ] && [ -n "$(command -v gnuls)" ]; then
-    alias ls='gnuls --color=auto'
+    alias ls="gnuls --color=auto"
 fi
 
 if  [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval $(dircolors -b ~/.dircolors) || eval $(dircolors -b)
-    alias ls='ls --color=auto'
-    alias dir='dir --color=auto'
-    alias vdir='vdir --color=auto'
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
+    alias ls="ls --color=auto"
+    alias dir="dir --color=auto"
+    alias vdir="vdir --color=auto"
+    alias grep="grep --color=auto"
+    alias fgrep="fgrep --color=auto"
+    alias egrep="egrep --color=auto"
 fi
 
-alias ll='ls -lh'
-alias la='ls -A'
-alias lla='ls -lha'
+alias ll="ls -lh"
+alias la="ls -A"
+alias lla="ls -lha"
 
-alias df='df -h'
+alias df="df -h"
 
 alias lrg='find . -type f 2>/dev/null -size +50000k -exec ls -lh {} \; | awk '"'"'{ print $9 ": " $5 }'"'"''
 
-alias pkg-in='sudo $PKG install'
-alias pkg-rm='sudo $PKG remove'
-alias pkg-up='sudo $PKG update'
-alias pkg-ug='sudo $PKG upgrade'
-alias pkg-ar='sudo $PKG autoremove'
-alias pkg-se='sudo $PKG search'
-alias pkg-du='sudo $PKG dist-upgrade'
-alias pkg-u='pkg-up; pkg-ug'
+alias pkg-in="sudo $PKG install"
+alias pkg-rm="sudo $PKG remove"
+alias pkg-up="sudo $PKG update"
+alias pkg-ug="sudo $PKG upgrade"
+alias pkg-ar="sudo $PKG autoremove"
+alias pkg-se="sudo $PKG search"
+alias pkg-du="sudo $PKG dist-upgrade"
+alias pkg-u="pkg-up; pkg-ug"
 
 if [ "$PKG" == "pacman" ]; then
-    alias pkg-in='sudo $PKG -S'
-    alias pkg-rm='sudo $PKG -Rs'
-    alias pkg-se='sudo $PKG -Ss'
-    alias pkg-up='sudo $PKG -Syu'
-    alias pkg-ar='sudo $PKG -Qdtq | $PKG -Rs -'
-    alias pkg-u='pkg-up'
-    alias pkg-ug='pkg-up'
+    alias pkg-in="sudo $PKG -S"
+    alias pkg-rm="sudo $PKG -Rs"
+    alias pkg-se="sudo $PKG -Ss"
+    alias pkg-up="sudo $PKG -Syu"
+    alias pkg-ar="sudo $PKG -Qdtq | $PKG -Rs -"
+    alias pkg-u="pkg-up"
+    alias pkg-ug="pkg-up"
     unalias pkg-du
 elif [ "$PKG" == "pkg" ]; then
     unalias pkg-du
 elif [ "$PKG" == "yum" ] || [ "$PKG" == "dnf" ]; then
-    alias pkg-u='pkg-up'
+    alias pkg-u="pkg-up"
     unalias pkg-du
 fi
 
-alias gco='git commit -am'
-alias gdi='git diff'
-alias gcl='git clone'
-alias gpu='git push'
-alias gll='git pull'
-alias grm='git rm'
-alias gadd='git add'
+if hash git 2>/dev/null; then
+    alias gco="git commit -am"
+    alias gdi="git diff"
+    alias gcl="git clone"
+    alias gpu="git push"
+    alias gll="git pull"
+    alias grm="git rm"
+    alias gadd="git add"
+fi
 
-alias visudo='sudo EDITOR=nano visudo'
-alias crontab='EDITOR=nano crontab'
+alias visudo="sudo EDITOR=nano visudo"
+alias crontab="EDITOR=nano crontab"
 
-alias rm='rm -v'
-alias rmi='rm -i'
+alias rm="rm -v"
+alias rmi="rm -i"
 
-alias gop='xdg-open'
+alias gop="xdg-open"
