@@ -11,7 +11,7 @@ fi
 
 source ~/.aliases
 
-alias setup='setup -K http://cygwinports.org/ports.gpg'
+alias setup="setup -K http://cygwinports.org/ports.gpg"
 
 unalias gop
 unalias visudo
@@ -25,8 +25,8 @@ unalias pkg-u
 unalias pkg-ug
 unalias pkg-up
 
-alias cyg-in='setup -qgdnP'
-alias cyg-rm='setup -qgdnx'
+alias cyg-in="setup -qgdnP"
+alias cyg-rm="setup -qgdnx"
 
 if [ -d "/cygdrive/c/Go" ]; then
     export PATH=$PATH:/cygdrive/c/Go/bin
