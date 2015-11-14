@@ -13,7 +13,7 @@
 
 case $- in
     *i*) ;;
-      *) return;;
+        *) return;;
 esac
 
 # Includes the machine-specific settings file
@@ -36,8 +36,8 @@ case "$TERM" in
 esac
 
 if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-        color_prompt=yes
+    if [ -x /usr/bin/tput ] && tput setaf 1 >& /dev/null; then
+        color_prompt="yes"
     else
         color_prompt=
     fi
@@ -71,4 +71,3 @@ fi
 if [ -f ~/.aliases ]; then
     source ~/.aliases
 fi
-
