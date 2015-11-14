@@ -56,7 +56,8 @@ fi
 
 # Removes duplicate entries
 if [ -n "$PATH" ]; then
-    oldPATH="$PATH:"; PATH=
+    oldPATH="$PATH:"
+    PATH=
     while [ -n "$oldPATH" ]; do
         x="${oldPATH%%:*}"
         case $PATH: in

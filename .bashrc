@@ -13,7 +13,7 @@
 
 case $- in
     *i*);;
-        *) return;;
+    *) return;;
 esac
 
 # Includes the machine-specific settings file
