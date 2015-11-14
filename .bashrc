@@ -12,31 +12,31 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 case $- in
-    *i*) ;;
+    *i*);;
         *) return;;
 esac
 
 # Includes the machine-specific settings file
-if [ -f ~/.bashspec ]; then
-    source ~/.bashspec
+if [ -f "$HOME/.bashspec" ]; then
+    source "$HOME/.bashspec"
 fi
 
-HISTCONTROL=ignoreboth
+HISTCONTROL="ignoreboth"
 shopt -s histappend
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE="1000"
+HISTFILESIZE="2000"
 shopt -s checkwinsize
 
-if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
+if [ -z "${debian_chroot:-}" ] && [ -r "/etc/debian_chroot" ]; then
+    debian_chroot="$(cat /etc/debian_chroot)"
 fi
 
 case "$TERM" in
-    xterm-color) color_prompt=yes;;
+    xterm-color) color_prompt="yes";;
 esac
 
 if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >& /dev/null; then
+    if [ -x "/usr/bin/tput" ] && tput setaf 1 >& /dev/null; then
         color_prompt="yes"
     else
         color_prompt=
@@ -55,19 +55,19 @@ if [ "$USER" == "root" ]; then
 fi
 
 if ! shopt -oq posix; then
-    if [ -f /usr/share/bash-completion/bash_completion ]; then
-        source /usr/share/bash-completion/bash_completion
-    elif [ -f /etc/bash_completion ]; then
-        source /etc/bash_completion
+    if [ -f "/usr/share/bash-completion/bash_completion" ]; then
+        source "/usr/share/bash-completion/bash_completion"
+    elif [ -f "/etc/bash_completion" ]; then
+        source "/etc/bash_completion"
     fi
 fi
 
-if [ $(uname -a | awk '{print $7;}') == "Cygwin" ] && [ -f ~/.cygwin ]; then
-    source ~/.cygwin
+if [ $(uname -a | awk '{print $7;}') == "Cygwin" ] && [ -f "$HOME/.cygwin" ]; then
+    source "$HOME/.cygwin"
     return
 fi
 
 # Includes the aliases file
-if [ -f ~/.aliases ]; then
-    source ~/.aliases
+if [ -f "$HOME/.aliases" ]; then
+    source "$HOME/.aliases"
 fi

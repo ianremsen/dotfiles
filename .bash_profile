@@ -56,15 +56,15 @@ fi
 
 # Removes duplicate entries
 if [ -n "$PATH" ]; then
-    oldPATH=$PATH:; PATH=
+    oldPATH="$PATH:"; PATH=
     while [ -n "$oldPATH" ]; do
-        x=${oldPATH%%:*}
+        x="${oldPATH%%:*}"
         case $PATH: in
-            *:"$x":*) ;;
-            *) PATH=$PATH:$x;;
+            *:"$x":*);;
+            *) PATH="$PATH:$x";;
         esac
-        oldPATH=${oldPATH#*:}
+        oldPATH="${oldPATH#*:}"
     done
-    PATH=${PATH#:}
+    PATH="${PATH#:}"
     unset oldPATH x
 fi
