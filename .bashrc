@@ -44,7 +44,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$(uname)" == "FreeBSD" ] && ! [ -n "$(command -v gnuls)" ]; then
-    export PATH="ExGxCxDxFxegedabagacad"
+    export LSCOLORS="ExGxFxDxCxegedabagacad"
 fi
 
 # Checks if env var is set for this being a remote system, and properly sets the PS1
