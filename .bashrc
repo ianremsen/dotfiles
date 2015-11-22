@@ -43,6 +43,10 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+if [ "$(uname)" == "FreeBSD" ] && ! [ -n "$(command -v gnuls)" ]; then
+    export PATH="ExGxCxDxFxegedabagacad"
+fi
+
 # Checks if env var is set for this being a remote system, and properly sets the PS1
 if [ "$REMOTE" == "0" ]; then
     export PS1="\[\e[01;34m\]\u\[\e[0m\]\[\e[01;37m\]@\h\[\e[0m\]\[\e[00;37m\]:[\[\e[0m\]\[\e[00;33m\]\w\[\e[0m\]\[\e[00;37m\]]: \[\e[0m\]"

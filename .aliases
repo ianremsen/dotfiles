@@ -15,7 +15,7 @@
 
 if [ "$(uname)" == "FreeBSD" ] && [ -n "$(command -v gnuls)" ]; then
     alias ls="gnuls --color=auto"
-else
+elif [ "$(uname)" == "FreeBSD" ]; then
     alias ls="ls -G"
 fi
 
