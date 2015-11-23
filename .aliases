@@ -13,10 +13,8 @@
 
 # -*- mode: shell;-*-
 
-if [ "$(uname)" == "FreeBSD" ] && [ -n "$(command -v gnuls)" ]; then
-    alias ls="gnuls --color=auto"
-elif [ "$(uname)" == "FreeBSD" ]; then
-    alias ls="ls -G"
+if [ "$(uname)" == "FreeBSD" ] && [ -n "$(command -v gnuls)" ]; then alias ls="gnuls --color=auto"
+elif [ "$(uname)" == "FreeBSD" ]; then alias ls="ls -G"
 fi
 
 if [ -x "/usr/bin/dircolors" ]; then
@@ -57,8 +55,7 @@ if [ "$PKG" == "pacman" ]; then
     alias pkg-u="pkg-up"
     alias pkg-ug="pkg-up"
     unalias pkg-du
-elif [ "$PKG" == "pkg" ]; then
-    unalias pkg-du
+elif [ "$PKG" == "pkg" ]; then unalias pkg-du
 elif [ "$PKG" == "yum" ] || [ "$PKG" == "dnf" ]; then
     alias pkg-u="pkg-up"
     unalias pkg-du
