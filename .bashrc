@@ -11,9 +11,10 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-if [[ $- =~ "i" ]]; then
-    return
-fi
+case $- in
+    *i*);;
+    *) return;;
+esac
 
 # Includes the machine-specific settings file
 if [ -f "$HOME/.bashspec" ]; then
