@@ -13,11 +13,11 @@
 
 # -*- mode: shell;-*-
 
-if [ "$(uname)" == "FreeBSD" ] && [ -n "$(command -v gnuls)" ]; then alias ls="gnuls --color=auto"
+if   [ "$(uname)" == "FreeBSD" ] && [ -n "$(command -v gnuls)" ]; then alias ls="gnuls --color=auto"
 elif [ "$(uname)" == "FreeBSD" ]; then alias ls="ls -G"
 fi
 
-if [ -x "/usr/bin/dircolors" ]; then
+if  [ -x "/usr/bin/dircolors" ]; then
     [ -r "$HOME/.dircolors" ] && eval `dircolors -b $HOME/.dircolors` || eval `dircolors -b`
     alias ls="ls --color=auto"
     alias dir="dir --color=auto"

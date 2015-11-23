@@ -32,7 +32,7 @@ case "$TERM" in
 esac
 
 if [ -n "$force_color_prompt" ]; then
-    if [ -x "/usr/bin/tput" ] && tput setaf 1 >& /dev/null; then color_prompt="yes"
+    if [ -x "/usr/bin/tput" ] && tput setaf 1 >&/dev/null; then color_prompt="yes"
     else color_prompt=
     fi
 fi
@@ -47,7 +47,7 @@ fi
 if [ "$USER" == "root" ]; then export PS1="\[\e[01;35m\]\u\[\e[0m\]\[\e[01;37m\]@\h\[\e[0m\]\[\e[00;37m\]:[\[\e[0m\]\[\e[00;33m\]\w\[\e[0m\]\[\e[00;37m\]]: \[\e[0m\]"; fi
 
 if ! shopt -oq posix; then
-    if [ -f "/usr/share/bash-completion/bash_completion" ]; then source "/usr/share/bash-completion/bash_completion"
+    if   [ -f "/usr/share/bash-completion/bash_completion" ]; then source "/usr/share/bash-completion/bash_completion"
     elif [ -f "/etc/bash_completion" ]; then source "/etc/bash_completion"
     fi
 fi
