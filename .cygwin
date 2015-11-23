@@ -4,7 +4,7 @@
 SSHAGENT="/usr/bin/ssh-agent"
 SSHAGENTARGS="-s"
 
-if [ -z "$SSH_AUTH_SOCK" -a -x "$SSHAGENT" ]; then
+if [ -z "$SSH_AUTH_SOCK" -ax "$SSHAGENT" ]; then
     eval `$SSHAGENT $SSHAGENTARGS` > /dev/null
     trap "kill $SSH_AGENT_PID" 0
 fi
@@ -29,11 +29,6 @@ alias cyg-in="setup -qgdnP"
 alias cyg-rm="setup -qgdnx"
 
 if [ -d "/cygdrive/c/Go" ]; then
-    export PATH="$PATH:/cygdrive/c/Go/bin"
-    export GOPATH="$HOME/code/go"
-fi
-
-if [ -d "$HOME/.rvm" ]; then
-    export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-    [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+    export PATH="$PATH:C:\Users\ian\code\go"
+    export GOPATH="C:\Users\ian\code\go"
 fi
