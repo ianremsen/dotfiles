@@ -30,7 +30,7 @@ alias cyg-rm="setup -qgdnx"
 
 if [ -d "/cygdrive/c/Go" ]; then
     export PATH="$PATH:/cygdrive/c/Go/bin"
-    export GOPATH="/cygdrive/c/cygwin64/home/ian/code/go/"
+    export GOPATH="$HOME/code/go"
 fi
 
 if [ -d "$HOME/.rvm" ]; then
