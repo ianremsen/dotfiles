@@ -19,8 +19,8 @@ elif [ "$(uname)" == "FreeBSD" ]; then
     alias ls="ls -G"
 fi
 
-if  [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval $(dircolors -b ~/.dircolors) || eval $(dircolors -b)
+if [ -x "/usr/bin/dircolors" ]; then
+    [ -r "$HOME/.dircolors" ] && eval `dircolors -b $HOME/.dircolors` || eval `dircolors -b`
     alias ls="ls --color=auto"
     alias dir="dir --color=auto"
     alias vdir="vdir --color=auto"
@@ -31,20 +31,22 @@ fi
 
 alias ll="ls -lh"
 alias la="ls -A"
-alias lla="ls -lha"
+alias lla="ls -lhA"
 
 alias df="df -h"
 
 alias lrg='find . -type f 2>/dev/null -size +50000k -exec ls -lh {} \; | awk '"'"'{ print $9 ": " $5 }'"'"''
 
-alias pkg-in="sudo $PKG install"
-alias pkg-rm="sudo $PKG remove"
-alias pkg-up="sudo $PKG update"
-alias pkg-ug="sudo $PKG upgrade"
-alias pkg-ar="sudo $PKG autoremove"
-alias pkg-se="sudo $PKG search"
-alias pkg-du="sudo $PKG dist-upgrade"
-alias pkg-u="pkg-up; pkg-ug"
+if [ -n $PKG ]; then
+    alias pkg-in="sudo $PKG install"
+    alias pkg-rm="sudo $PKG remove"
+    alias pkg-up="sudo $PKG update"
+    alias pkg-ug="sudo $PKG upgrade"
+    alias pkg-ar="sudo $PKG autoremove"
+    alias pkg-se="sudo $PKG search"
+    alias pkg-du="sudo $PKG dist-upgrade"
+    alias pkg-u="pkg-up; pkg-ug"
+fi
 
 if [ "$PKG" == "pacman" ]; then
     alias pkg-in="sudo $PKG -S"
