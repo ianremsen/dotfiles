@@ -17,9 +17,7 @@ case $- in
 esac
 
 # Includes the machine-specific settings file
-if [ -f "$HOME/.bashspec" ]; then
-    source "$HOME/.bashspec"
-fi
+if [ -f "$HOME/.bashspec" ]; then source "$HOME/.bashspec"; fi
 
 HISTCONTROL="ignoreboth"
 shopt -s histappend
@@ -27,25 +25,19 @@ HISTSIZE="1000"
 HISTFILESIZE="2000"
 shopt -s checkwinsize
 
-if [ -z "${debian_chroot:-}" ] && [ -r "/etc/debian_chroot" ]; then
-    debian_chroot="$(cat /etc/debian_chroot)"
-fi
+if [ -z "${debian_chroot:-}" ] && [ -r "/etc/debian_chroot" ]; then debian_chroot="$(cat /etc/debian_chroot)"; fi
 
 case "$TERM" in
     xterm-color) color_prompt="yes";;
 esac
 
 if [ -n "$force_color_prompt" ]; then
-    if [ -x "/usr/bin/tput" ] && tput setaf 1 >& /dev/null; then
-        color_prompt="yes"
-    else
-        color_prompt=
+    if [ -x "/usr/bin/tput" ] && tput setaf 1 >& /dev/null; then color_prompt="yes"
+    else color_prompt=
     fi
 fi
 
-if [ "$(uname)" == "FreeBSD" ] && ! [ -n "$(command -v gnuls)" ]; then
-    export LSCOLORS="ExGxFxDxCxegedabagacad"
-fi
+if [ "$(uname)" == "FreeBSD" ] && ! [ -n "$(command -v gnuls)" ]; then export LSCOLORS="ExGxFxDxCxegedabagacad"; fi
 
 # Checks if env var is set for this being a remote system, and properly sets the PS1
 if [ "$REMOTE" == "0" ]; then
@@ -59,10 +51,8 @@ if [ "$USER" == "root" ]; then
 fi
 
 if ! shopt -oq posix; then
-    if [ -f "/usr/share/bash-completion/bash_completion" ]; then
-        source "/usr/share/bash-completion/bash_completion"
-    elif [ -f "/etc/bash_completion" ]; then
-        source "/etc/bash_completion"
+    if [ -f "/usr/share/bash-completion/bash_completion" ]; then source "/usr/share/bash-completion/bash_completion"
+    elif [ -f "/etc/bash_completion" ]; then source "/etc/bash_completion"
     fi
 fi
 
@@ -72,6 +62,4 @@ if [ $(uname -a | awk '{print $7;}') == "Cygwin" ] && [ -f "$HOME/.cygwin" ]; th
 fi
 
 # Includes the aliases file
-if [ -f "$HOME/.aliases" ]; then
-    source "$HOME/.aliases"
-fi
+if [ -f "$HOME/.aliases" ]; then source "$HOME/.aliases"; fi
