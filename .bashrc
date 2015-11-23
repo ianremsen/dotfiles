@@ -16,7 +16,6 @@ case $- in
     *) return;;
 esac
 
-# Includes the machine-specific settings file
 if [ -f "$HOME/.bashspec" ]; then source "$HOME/.bashspec"; fi
 
 HISTCONTROL="ignoreboth"
