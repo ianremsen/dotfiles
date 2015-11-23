@@ -1,11 +1,8 @@
 # The file that stores Cygwin-specific settings.
 # -*- mode: shell;-*-
 
-SSHAGENT="/usr/bin/ssh-agent"
-SSHAGENTARGS="-s"
-
-if [ -z "$SSH_AUTH_SOCK" -a -x "$SSHAGENT" ]; then
-    eval `$SSHAGENT $SSHAGENTARGS` > /dev/null
+if [ -z "$SSH_AUTH_SOCK" -a -x "/usr/bin/ssh-agent" ]; then
+    eval `/usr/bin/ssh-agent -s` > /dev/null
     trap "kill $SSH_AGENT_PID" 0
 fi
 
