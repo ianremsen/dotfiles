@@ -3,7 +3,7 @@
 
 if [ -z "$SSH_AUTH_SOCK" -a -x "/usr/bin/ssh-agent" ]; then
     eval `/usr/bin/ssh-agent -s` > /dev/null
-    trap `kill $SSH_AGENT_PID` 0
+    trap kill $SSH_AGENT_PID 0
 fi
 
 source "$HOME/.aliases"
