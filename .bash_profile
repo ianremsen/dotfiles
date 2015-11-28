@@ -19,16 +19,16 @@ if [ -d "/usr/local/go" ]; then
     export GOBIN="$GOPATH/bin"
 fi
 
-if [ -d "/usr/racket" ]; then export PATH="$PATH:/usr/racket/bin"; fi
+if [ -d "/usr/racket" ];   then export PATH="$PATH:/usr/racket/bin"; fi
 if [ -d "/usr/bin/mono" ]; then export PATH="$PATH:/usr/bin/mono"; fi
-if [ "$USER" == "root" ]; then export PATH="$PATH:/usr/local/bin"; fi
+if [ "$USER" == "root" ];  then export PATH="$PATH:/usr/local/bin"; fi
 
 # Sets the PKG env for alias shortcut.
 if   [ -n "$(command -v yum)" ] && ! [ -n "$(command -v dnf)" ]; then export PKG="yum"
-elif [ -n "$(command -v dnf)" ]; then export PKG="dnf"
+elif [ -n "$(command -v dnf)" ];     then export PKG="dnf"
 elif [ -n "$(command -v apt-get)" ]; then export PKG="apt-get"
-elif [ -n "$(command -v pkg)" ]; then export PKG="pkg"
-elif [ -n "$(command -v pacman)" ]; then export PKG="pacman"
+elif [ -n "$(command -v pkg)" ];     then export PKG="pkg"
+elif [ -n "$(command -v pacman)" ];  then export PKG="pacman"
 fi
 
 if [ -n "$(command -v wine)" ]; then export C="$HOME/.wine/drive_c/"; fi

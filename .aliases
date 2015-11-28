@@ -17,7 +17,7 @@ if   [ "$(uname)" == "FreeBSD" ] && [ -n "$(command -v gnuls)" ]; then alias ls=
 elif [ "$(uname)" == "FreeBSD" ]; then alias ls="ls -G"
 fi
 
-if  [ -x "/usr/bin/dircolors" ]; then
+if [ -x "/usr/bin/dircolors" ]; then
     [ -r "$HOME/.dircolors" ] && eval `dircolors -b $HOME/.dircolors` || eval `dircolors -b`
     alias ls="ls --color=auto"
     alias dir="dir --color=auto"
@@ -30,9 +30,11 @@ fi
 alias ll="ls -lh"
 alias la="ls -A"
 alias lla="ls -lhA"
-
 alias df="df -h"
+alias rm="rm -v"
+alias rmi="rm -i"
 
+alias allup="utilup; utilup; dotup"
 alias lrg='find . -type f 2>/dev/null -size +50000k -exec ls -lh {} \; | awk '"'"'{ print $9 ": " $5 }'"'"''
 
 if [ -n "$PKG" ]; then
@@ -70,11 +72,6 @@ if hash git 2>/dev/null; then
     alias grm="git rm"
     alias gadd="git add"
 fi
-
-alias rm="rm -v"
-alias rmi="rm -i"
-
-alias upall="utilup; utilup; dotup"
 
 if hash visudo 2>/dev/null; then alias visudo="sudo EDITOR=nano visudo"; fi
 if hash crontab 2>/dev/null; then alias crontab="EDITOR=nano crontab"; fi
