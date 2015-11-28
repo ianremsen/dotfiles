@@ -37,10 +37,10 @@ if [ -f "$HOME/.bashrc" ]; then source "$HOME/.bashrc"; fi
 # Removes duplicate entries
 if [ -n "$PATH" ]; then
     oldPATH="$PATH:"
-    PATH=
+    PATH=""
     while [ -n "$oldPATH" ]; do
         x="${oldPATH%%:*}"
-        case $PATH: in
+        case "$PATH:" in
             *:"$x":*);;
             *) PATH="$PATH:$x";;
         esac
