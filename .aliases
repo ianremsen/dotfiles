@@ -36,7 +36,7 @@ alias rmi="rm -i"
 
 alias allup="utilup; utilup; dotup"
 
-alias lrg='find $PWD -type f -size +50M 2>/dev/null -exec du -h {} +'
+alias lrg='find $(pwd) -type f -size +40M 2>/dev/null -exec du -h {} +'
 
 if [ -n "$PKG" ]; then
     alias pkg-in="sudo $PKG install"
