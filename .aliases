@@ -35,7 +35,7 @@ alias rm="rm -v"
 alias rmi="rm -i"
 
 alias allup="utilup; utilup; dotup"
-alias lrg='find . -type f 2>/dev/null -size +50000k -exec ls -lh {} \; | awk '"'"'{ print $9 ": " $5 }'"'"''
+alias lrg='find $PWD -type f -size +50000k 2>/dev/null -exec du -h {} +'
 
 if [ -n "$PKG" ]; then
     alias pkg-in="sudo $PKG install"
