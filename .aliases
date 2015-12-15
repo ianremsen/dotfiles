@@ -64,6 +64,8 @@ elif [ "$PKG" == "yum" ] || [ "$PKG" == "dnf" ]; then
     unalias pkg-du
 fi
 
+if hash vim 2>/dev/null; then alias vi="vim"; fi
+
 if hash git 2>/dev/null; then
     alias gco="git commit -am"
     alias gdi="git diff"
