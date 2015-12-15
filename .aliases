@@ -76,7 +76,7 @@ if hash git 2>/dev/null; then
     alias gadd="git add"
 fi
 
-if hash visudo 2>/dev/null; then alias visudo="sudo EDITOR=nano visudo"; fi
-if hash crontab 2>/dev/null; then alias crontab="EDITOR=nano crontab"; fi
-if hash chsh 2>/dev/null; then alias chsh="EDITOR=nano chsh"; fi
+if hash visudo 2>/dev/null;   then alias visudo="sudo EDITOR=nano visudo"; fi
+if hash crontab 2>/dev/null;  then alias crontab="EDITOR=nano crontab"; fi
+if hash chsh 2>/dev/null;     then alias chsh="EDITOR=nano chsh"; fi
 if hash xdg-open 2>/dev/null; then alias gop="xdg-open"; fi
