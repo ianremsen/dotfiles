@@ -56,7 +56,7 @@ function calc () {
 
 function genpass () {
     if [ -n "$1" ]; then SIZE=$1
-    else SIZE="40"; fi
+    else SIZE="16"; fi
     < /dev/urandom tr -dc A-Za-z0-9_ | head -c"$SIZE"; echo ""
 }
 
