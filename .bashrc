@@ -69,4 +69,8 @@ function lrg () {
     find $(pwd) -type f -size +"$SIZE"M 2>/dev/null -exec du -h {} +
 }
 
+export -f calc
+export -f genpass
+export -f lrg
+
 if [ -f "$HOME/.aliases" ]; then source "$HOME/.aliases"; fi
