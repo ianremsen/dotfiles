@@ -55,15 +55,15 @@ if [ $(uname -a | awk '{print $7;}') == "Cygwin" ] && [ -f "$HOME/.cygwin" ]; th
     return
 fi
 
-function calc {
-    echo "${1}" | bc -l;
+calc() {
+    echo "${1}" | bc -l
 }
 
-function genpass {
+genpass() {
     < /dev/urandom tr -dc A-Za-z0-9_ | head -c"${1}"
 }
 
-function lrg {
+lrg() {
     if [ -n "$1" ]; then $SIZE=$1
     else $SIZE="40"; fi
     find $(pwd) -type f -size +"$SIZE"M 2>/dev/null -exec du -h {} +
