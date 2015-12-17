@@ -50,11 +50,6 @@ if ! shopt -oq posix; then
     fi
 fi
 
-if [ $(uname -a | awk '{print $7;}') == "Cygwin" ] && [ -f "$HOME/.cygwin" ]; then
-    source "$HOME/.cygwin"
-    return
-fi
-
 function calc () {
     echo "${1}" | bc -l;
 }
@@ -72,5 +67,10 @@ function lrg () {
 export -f calc
 export -f genpass
 export -f lrg
+
+if [ $(uname -a | awk '{print $7;}') == "Cygwin" ] && [ -f "$HOME/.cygwin" ]; then
+    source "$HOME/.cygwin"
+    return
+fi
 
 if [ -f "$HOME/.aliases" ]; then source "$HOME/.aliases"; fi
