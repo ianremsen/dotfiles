@@ -13,6 +13,6 @@ alias cyg-in="setup -qgdnP"
 alias cyg-rm="setup -qgdnx"
 
 if [ -d "/cygdrive/c/Go" ]; then
-    export PATH="$PATH:C:\Users\ian\code\go"
-    export GOPATH="C:\Users\ian\code\go"
+    export PATH="$PATH:C:\Users\\$(whoami)\code\go"
+    export GOPATH="C:\Users\\$(whoami)\code\go"
 fi
