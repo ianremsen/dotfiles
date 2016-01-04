@@ -8,9 +8,11 @@ fi
 
 source "$HOME/.aliases"
 
-alias setup="setup-x86_64 -K http://cygwinports.org/ports.gpg"
-alias cyg-in="setup -qgdnP"
-alias cyg-rm="setup -qgdnx"
+if hash setup 2>/dev/null; then
+    alias setup="setup-x86_64 -K http://cygwinports.org/ports.gpg"
+    alias cyg-in="setup -qgdnP"
+    alias cyg-rm="setup -qgdnx"
+fi
 
 if [ -d "/cygdrive/c/Go" ]; then
     export PATH="$PATH:C:\Users\\$(whoami)\code\go"
