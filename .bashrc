@@ -51,7 +51,7 @@ if ! shopt -oq posix; then
 fi
 
 function calc () {
-    echo "${1}" | bc -l;
+    echo "$1" | bc -l;
 }
 
 function genpass () {
@@ -66,7 +66,7 @@ function lrg () {
     find $(pwd) -type f -size +"$SIZE"M 2>/dev/null -exec du -h {} +
 }
 
-export -f calc
+if hash bc 2>/dev/null; then export -f calc; fi
 export -f genpass
 export -f lrg
 
