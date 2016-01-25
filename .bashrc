@@ -51,7 +51,7 @@ if ! shopt -oq posix; then
 fi
 
 function calc () {
-    echo "$1" | bc -l;
+    echo "${*:1}" | bc -l;
 }
 
 function genpass () {

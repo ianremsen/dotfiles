@@ -23,7 +23,6 @@ if [ -d "/usr/racket" ];   then export PATH="$PATH:/usr/racket/bin"; fi
 if [ -d "/usr/bin/mono" ]; then export PATH="$PATH:/usr/bin/mono"; fi
 if [ "$USER" == "root" ];  then export PATH="$PATH:/usr/local/bin"; fi
 
-# Sets the PKG env for alias shortcut.
 if   [ -n "$(command -v yum)" ] && ! [ -n "$(command -v dnf)" ]; then export PKG="yum"
 elif [ -n "$(command -v dnf)" ];     then export PKG="dnf"
 elif [ -n "$(command -v apt-get)" ]; then export PKG="apt-get"
