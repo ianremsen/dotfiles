@@ -73,7 +73,7 @@ if hash git 2>/dev/null; then
     alias grm="git rm"
     alias gadd="git add"
 
-    alias hcf="/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME"
+    alias hcf="git --git-dir=$HOME/.myconf/ --work-tree=$HOME"
     alias hco="hcf commit -am"
     alias hpu="hcf push"
     alias hll="hcf pull"
