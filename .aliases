@@ -72,6 +72,8 @@ if hash git 2>/dev/null; then
     alias gll="git pull"
     alias grm="git rm"
     alias gadd="git add"
+
+    alias hcf='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
 fi
 
 if hash visudo 2>/dev/null;   then alias visudo="sudo EDITOR=nano visudo"; fi
