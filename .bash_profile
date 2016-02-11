@@ -21,7 +21,19 @@ fi
 
 if [ -d "/usr/racket" ];   then export PATH="$PATH:/usr/racket/bin"; fi
 if [ -d "/usr/bin/mono" ]; then export PATH="$PATH:/usr/bin/mono"; fi
-if [ "$USER" == "root" ];  then export PATH="$PATH:/usr/local/bin"; fi
+
+if [ -d "/usr/local/dlang" ]; then
+    _OLD_D_PATH="$PATH"
+    _OLD_D_LIBRARY_PATH="$LIBRARY_PATH"
+    _OLD_D_LD_LIBRARY_PATH="$LD_LIBRARY_PATH"
+    _OLD_D_PS1="$PS1"
+
+    export PATH="$PATH:/usr/local/dlang/dub:/usr/local/dlang/dmd-2.070.0/linux/bin64"
+    export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/dlang/dmd-2.070.0/linux/lib64"
+    export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/dlang/dmd-2.070.0/linux/lib64"
+    export DMD=dmd
+    export DC=dmd
+fi
 
 if   [ -n "$(command -v yum)" ] && ! [ -n "$(command -v dnf)" ]; then export PKG="yum"
 elif [ -n "$(command -v dnf)" ];     then export PKG="dnf"

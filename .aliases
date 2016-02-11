@@ -32,7 +32,7 @@ alias la="ls -A"
 alias lla="ls -lhA"
 alias df="df -h"
 alias rm="rm -v"
-alias rmi="rm -i"
+alias rmi="rm -i" 
 
 alias allup="utilup; utilup; dotup"
 
