@@ -34,8 +34,6 @@ alias df="df -h"
 alias rm="rm -v"
 alias rmi="rm -i" 
 
-alias allup="utilup; utilup; dotup"
-
 if [ -n "$PKG" ]; then
     alias pkg-in="sudo $PKG install"
     alias pkg-rm="sudo $PKG remove"
