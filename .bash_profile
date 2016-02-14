@@ -42,7 +42,6 @@ elif [ -n "$(command -v pkg)" ];     then export PKG="pkg"
 elif [ -n "$(command -v pacman)" ];  then export PKG="pacman"
 fi
 
-if [ -n "$(command -v wine)" ]; then export C="$HOME/.wine/drive_c/"; fi
 if [ -f "$HOME/.bashrc" ]; then source "$HOME/.bashrc"; fi
 
 # Removes duplicate entries
