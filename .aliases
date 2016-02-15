@@ -32,7 +32,7 @@ alias la="ls -A"
 alias lla="ls -lhA"
 alias df="df -h"
 alias rm="rm -v"
-alias rmi="rm -i" 
+alias rmi="rm -i"
 
 if [ -n "$PKG" ]; then
     alias pkg-in="sudo $PKG install"
@@ -61,6 +61,7 @@ elif [ "$PKG" == "yum" ] || [ "$PKG" == "dnf" ]; then
 fi
 
 if hash vim 2>/dev/null; then alias vi="vim"; fi
+if hash perl6.bat 2>/dev/null; then alias perl6="perl6.bat"; fi
 
 if hash git 2>/dev/null; then
     alias gco="git commit -am"
