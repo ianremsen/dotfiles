@@ -58,6 +58,7 @@ elif [ "$PKG" == "pkg" ]; then unalias pkg-du
 elif [ "$PKG" == "yum" ] || [ "$PKG" == "dnf" ]; then
     alias pkg-u="pkg-up"
     unalias pkg-du
+elif [ "$PKG" == "apt-get" ]; then alias pkg-se="apt-cache search"
 fi
 
 if hash vim 2>/dev/null; then alias vi="vim"; fi
