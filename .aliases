@@ -40,7 +40,7 @@ if [ -n "$PKG" ]; then
     alias pkg-up="sudo $PKG update"
     alias pkg-ug="sudo $PKG upgrade"
     alias pkg-ar="sudo $PKG autoremove"
-    alias pkg-se="sudo $PKG search"
+    alias pkg-se="$PKG search"
     alias pkg-du="sudo $PKG dist-upgrade"
     alias pkg-u="pkg-up; pkg-ug"
 fi
@@ -48,17 +48,17 @@ fi
 if [ "$PKG" == "pacman" ]; then
     alias pkg-in="sudo $PKG -S"
     alias pkg-rm="sudo $PKG -Rs"
-    alias pkg-se="sudo $PKG -Ss"
+    alias pkg-se="$PKG -Ss"
     alias pkg-up="sudo $PKG -Syu"
     alias pkg-ar="sudo $PKG -Qdtq | $PKG -Rs -"
     alias pkg-u="pkg-up"
     alias pkg-ug="pkg-up"
     unalias pkg-du
-elif [ "$PKG" == "pkg" ]; then unalias pkg-du
+elif [ "$PKG" == "apt-get" ]; then alias pkg-se="apt-cache search"
+elif [ "$PKG" == "pkg" ];     then unalias pkg-du
 elif [ "$PKG" == "yum" ] || [ "$PKG" == "dnf" ]; then
     alias pkg-u="pkg-up"
     unalias pkg-du
-elif [ "$PKG" == "apt-get" ]; then alias pkg-se="apt-cache search"
 fi
 
 if hash vim 2>/dev/null; then alias vi="vim"; fi
