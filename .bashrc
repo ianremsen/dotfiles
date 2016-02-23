@@ -51,13 +51,13 @@ if ! shopt -oq posix; then
 fi
 
 function genpass () {
-    if [ -n "$1" ]; then SIZE=$1
+    if [ -n "$1" ]; then SIZE="$1"
     else SIZE="32"; fi
     < /dev/urandom tr -dc A-Za-z0-9\$\&\!\%^@_*# | head -c "$SIZE"; echo ""
 }
 
 function lrg () {
-    if [ -n "$1" ]; then SIZE=$1
+    if [ -n "$1" ]; then SIZE="$1"
     else SIZE="40"; fi
     find $(pwd) -type f -size +"$SIZE"M 2>/dev/null -exec du -h {} +
 }
