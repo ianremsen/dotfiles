@@ -67,7 +67,7 @@ export -f lrg
 
 if [ $(uname -a | awk '{print $7;}') == "Cygwin" ]; then
     if [ -z "$SSH_AUTH_SOCK" -a -x /usr/bin/ssh-pageant ]; then eval $(/usr/bin/ssh-pageant -q)
-    else if [ -z "$SSH_AUTH_SOCK" -a -x "/usr/bin/ssh-agent" ]; then
+    elif [ -z "$SSH_AUTH_SOCK" -a -x "/usr/bin/ssh-agent" ]; then
         eval `/usr/bin/ssh-agent -s` > /dev/null
         trap "kill $SSH_AGENT_PID" 0
     fi
