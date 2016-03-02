@@ -77,7 +77,7 @@ if hash git 2>/dev/null; then
     alias hco="hcf commit -am"
     alias hpu="hcf push"
     alias hll="hcf pull"
-    alias dotup="hcf pull"
+    alias dotup="hll"
 fi
 
 if hash visudo 2>/dev/null;   then alias visudo="sudo EDITOR=nano visudo"; fi
