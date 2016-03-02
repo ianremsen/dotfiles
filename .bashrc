@@ -29,8 +29,6 @@ shopt -s cdspell
 shopt -s checkwinsize
 set -o noclobber
 
-if [ -z "${debian_chroot:-}" ] && [ -r "/etc/debian_chroot" ]; then debian_chroot="$(cat /etc/debian_chroot)"; fi
-
 case "$TERM" in
     xterm-color) color_prompt="yes";;
 esac
@@ -41,13 +39,7 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-if [ "$(uname)" == "FreeBSD" ] && ! [ -n "$(command -v gnuls)" ]; then export LSCOLORS="ExGxFxDxCxegedabagacad"; fi
-
-if [ "$REMOTE" == "0" ]; then export PS1="\[\e[01;34m\]\u\[\e[0m\]\[\e[01;37m\]@\h\[\e[0m\]\[\e[00;37m\]:[\[\e[0m\]\[\e[00;33m\]\w\[\e[0m\]\[\e[00;37m\]]: \[\e[0m\]"
-else export PS1="\[\e[01;31m\]\u\[\e[0m\]\[\e[01;37m\]@\h\[\e[0m\]\[\e[00;37m\]:[\[\e[0m\]\[\e[00;33m\]\w\[\e[0m\]\[\e[00;37m\]]: \[\e[0m\]"
-fi
-
-if [ "$USER" == "root" ]; then export PS1="\[\e[01;35m\]\u\[\e[0m\]\[\e[01;37m\]@\h\[\e[0m\]\[\e[00;37m\]:[\[\e[0m\]\[\e[00;33m\]\w\[\e[0m\]\[\e[00;37m\]]: \[\e[0m\]"; fi
+export PS1="\[\e[01;34m\]\u\[\e[0m\]\[\e[01;37m\]@\h\[\e[0m\]\[\e[00;37m\]:[\[\e[0m\]\[\e[00;33m\]\w\[\e[0m\]\[\e[00;37m\]]: \[\e[0m\]"
 
 if ! shopt -oq posix; then
     if   [ -f "/usr/share/bash-completion/bash_completion" ]; then source "/usr/share/bash-completion/bash_completion"
@@ -70,29 +62,23 @@ function lrg () {
 export -f genpass
 export -f lrg
 
-if [ $(uname -a | awk '{print $7;}') == "Cygwin" ]; then
-    if [ -z "$SSH_AUTH_SOCK" -a -x /usr/bin/ssh-pageant ]; then eval $(/usr/bin/ssh-pageant -q)
-    elif [ -z "$SSH_AUTH_SOCK" -a -x "/usr/bin/ssh-agent" ]; then
-        eval `/usr/bin/ssh-agent -s` > /dev/null
-        trap "kill $SSH_AGENT_PID" 0
-    fi
-
-    trap logout HUP
-
-    source "$HOME/.aliases"
-
-    if hash setup-x86_64 2>/dev/null; then
-        alias setup="setup-x86_64 -K http://cygwinports.org/ports.gpg"
-        alias cyg-in="setup -qgdnP"
-        alias cyg-rm="setup -qgdnx"
-    fi
-
-    if [ -d "/cygdrive/c/Go" ]; then
-        export PATH="$PATH:C:\Users\\$(whoami)\code\go"
-        export GOPATH="C:\Users\\$(whoami)\code\go"
-    fi
-
-    return
+if [ -z "$SSH_AUTH_SOCK" -a -x /usr/bin/ssh-pageant ]; then eval $(/usr/bin/ssh-pageant -q)
+elif [ -z "$SSH_AUTH_SOCK" -a -x "/usr/bin/ssh-agent" ]; then
+    eval `/usr/bin/ssh-agent -s` > /dev/null
+    trap "kill $SSH_AGENT_PID" 0
 fi
 
-if [ -f "$HOME/.aliases" ]; then source "$HOME/.aliases"; fi
+trap logout HUP
+
+source "$HOME/.aliases"
+
+if hash setup-x86_64 2>/dev/null; then
+    alias setup="setup-x86_64 -K http://cygwinports.org/ports.gpg"
+    alias cyg-in="setup -qgdnP"
+    alias cyg-rm="setup -qgdnx"
+fi
+
+if [ -d "/cygdrive/c/Go" ]; then
+    export PATH="$PATH:C:\Users\\$(whoami)\code\go"
+    export GOPATH="C:\Users\\$(whoami)\code\go"
+fi
