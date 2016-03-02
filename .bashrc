@@ -19,10 +19,16 @@ esac
 if [ -f "$HOME/.bashspec" ]; then source "$HOME/.bashspec"; fi
 
 HISTCONTROL="ignoreboth"
-shopt -s histappend
 HISTSIZE="1000"
 HISTFILESIZE="2000"
+export HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history"
+shopt -s histappend
+shopt -s autocd
+shopt -s dirspell
+shopt -s cdspell
 shopt -s checkwinsize
+set -o noclobber
+bind "set completion-ignore-case on"
 
 if [ -z "${debian_chroot:-}" ] && [ -r "/etc/debian_chroot" ]; then debian_chroot="$(cat /etc/debian_chroot)"; fi
 
