@@ -28,7 +28,6 @@ shopt -s dirspell
 shopt -s cdspell
 shopt -s checkwinsize
 set -o noclobber
-bind "set completion-ignore-case on"
 
 if [ -z "${debian_chroot:-}" ] && [ -r "/etc/debian_chroot" ]; then debian_chroot="$(cat /etc/debian_chroot)"; fi
 
