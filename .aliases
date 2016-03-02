@@ -13,10 +13,6 @@
 
 # -*- mode: shell;-*-
 
-if   [ "$(uname)" == "FreeBSD" ] && [ -n "$(command -v gnuls)" ]; then alias ls="gnuls --color=auto"
-elif [ "$(uname)" == "FreeBSD" ]; then alias ls="ls -G"
-fi
-
 if [ -x "/usr/bin/dircolors" ]; then
     [ -r "$HOME/.dircolors" ] && eval `dircolors -b $HOME/.dircolors` || eval `dircolors -b`
     alias ls="ls --color=auto"
@@ -34,36 +30,6 @@ alias df="df -h"
 alias rm="rm -v"
 alias rmi="rm -i"
 
-if [ -n "$PKG" ]; then
-    alias pkg-in="sudo $PKG install"
-    alias pkg-rm="sudo $PKG remove"
-    alias pkg-up="sudo $PKG update"
-    alias pkg-ug="sudo $PKG upgrade"
-    alias pkg-ar="sudo $PKG autoremove"
-    alias pkg-se="$PKG search"
-    alias pkg-du="sudo $PKG dist-upgrade"
-    alias pkg-u="pkg-up; pkg-ug"
-fi
-
-if [ "$PKG" == "pacman" ]; then
-    alias pkg-in="sudo $PKG -S"
-    alias pkg-rm="sudo $PKG -Rs"
-    alias pkg-se="$PKG -Ss"
-    alias pkg-up="sudo $PKG -Syu"
-    alias pkg-ar="sudo $PKG -Qdtq | $PKG -Rs -"
-    alias pkg-u="pkg-up"
-    alias pkg-ug="pkg-up"
-    unalias pkg-du
-elif [ "$PKG" == "apt-get" ]; then alias pkg-se="apt-cache search"
-elif [ "$PKG" == "pkg" ];     then unalias pkg-du
-elif [ "$PKG" == "yum" ] || [ "$PKG" == "dnf" ]; then
-    alias pkg-u="pkg-up"
-    unalias pkg-du
-fi
-
-if hash vim 2>/dev/null; then alias vi="vim"; fi
-if hash perl6.bat 2>/dev/null; then alias perl6="perl6.bat"; fi
-
 if hash git 2>/dev/null; then
     alias gco="git commit -am"
     alias gdi="git diff"
@@ -80,7 +46,5 @@ if hash git 2>/dev/null; then
     alias dotup="hll"
 fi
 
-if hash visudo 2>/dev/null;   then alias visudo="sudo EDITOR=nano visudo"; fi
 if hash crontab 2>/dev/null;  then alias crontab="EDITOR=nano crontab"; fi
 if hash chsh 2>/dev/null;     then alias chsh="EDITOR=nano chsh"; fi
-if hash xdg-open 2>/dev/null; then alias gop="xdg-open"; fi
