@@ -35,9 +35,10 @@ if [ -d "/usr/local/dlang" ]; then
     export DC=dmd
 fi
 
-if   [ -n "$(command -v yum)" ] && ! [ -n "$(command -v dnf)" ]; then export PKG="yum"
+if   [ -n "$(command -v yum)" ]     && ! [ -n "$(command -v dnf)" ]; then export PKG="yum"
+elif [ -n "$(command -v apt-get)" ] && ! [ -n "$(command -v apt)" ]; then export PKG="apt-get"
 elif [ -n "$(command -v dnf)" ];     then export PKG="dnf"
-elif [ -n "$(command -v apt-get)" ]; then export PKG="apt-get"
+elif [ -n "$(command -v apt)" ];     then export PKG="apt"
 elif [ -n "$(command -v pkg)" ];     then export PKG="pkg"
 elif [ -n "$(command -v pacman)" ];  then export PKG="pacman"
 fi

@@ -55,6 +55,11 @@ if [ "$PKG" == "pacman" ]; then
     alias pkg-ug="pkg-up"
     unalias pkg-du
 elif [ "$PKG" == "apt-get" ]; then alias pkg-se="apt-cache search"
+elif [ "$PKG" == "apt" ]; then
+    alias pkg-u="pkg-ug"
+    alias pkg-up="pkg-ug"
+    alias pkg-ar="sudo apt-get autoremove"
+    alias pkg-du="sudo apt-get dist-upgrade"
 elif [ "$PKG" == "pkg" ];     then unalias pkg-du
 elif [ "$PKG" == "yum" ] || [ "$PKG" == "dnf" ]; then
     alias pkg-u="pkg-up"
