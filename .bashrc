@@ -87,11 +87,6 @@ if [ $(uname -a | awk '{print $7;}') == "Cygwin" ]; then
         alias cyg-rm="setup -qgdnx"
     fi
 
-    if [ -d "/cygdrive/c/Go" ]; then
-        export PATH="$PATH:C:\Users\\$(whoami)\code\go"
-        export GOPATH="C:\Users\\$(whoami)\code\go"
-    fi
-
     return
 fi
 
