@@ -48,7 +48,6 @@ if [ "$PKG" == "pacman" ]; then
     [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec ssh-agent startx
 fi
 
-
 if [ -f "$HOME/.bashrc" ]; then source "$HOME/.bashrc"; fi
 
 # Removes duplicate entries
