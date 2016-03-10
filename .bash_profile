@@ -17,14 +17,17 @@ if [ -d "/usr/local/go" ]; then
     export PATH="$PATH:/usr/local/go/bin"
     export GOPATH="$HOME/code/go"
     export GOBIN="$GOPATH/bin"
+elif [ -n "$(command -v go)" ]; then
+    export GOPATH="$HOME/code/go"
+    export GOBIN="$GOPATH/bin"
 fi
 
 if [ -d "/usr/racket" ];   then export PATH="$PATH:/usr/racket/bin"; fi
 if [ -d "/usr/bin/mono" ]; then export PATH="$PATH:/usr/bin/mono"; fi
 
 if [ -n "$(command -v dmd)" ]; then
-    export DMD=dmd
-    export DC=dmd
+    export DMD="dmd"
+    export DC="dmd"
 fi
 
 if [ $(uname -a | awk '{print $7;}') == "Cygwin" ]; then
