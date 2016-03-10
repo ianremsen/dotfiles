@@ -44,6 +44,11 @@ elif [ -n "$(command -v pkg)" ];     then export PKG="pkg"
 elif [ -n "$(command -v pacman)" ];  then export PKG="pacman"
 fi
 
+if [ "$PKG" == "pacman" ]; then
+    [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec ssh-agent startx
+fi
+
+
 if [ -f "$HOME/.bashrc" ]; then source "$HOME/.bashrc"; fi
 
 # Removes duplicate entries

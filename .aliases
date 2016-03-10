@@ -46,10 +46,10 @@ if [ -n "$PKG" ]; then
 fi
 
 if [ "$PKG" == "pacman" ]; then
-    alias pkg-in="sudo $PKG -S"
+    alias pkg-in="sudo $PKG -Syu"
     alias pkg-rm="sudo $PKG -Rs"
     alias pkg-se="$PKG -Ss"
-    alias pkg-up="sudo $PKG -Syu"
+    alias pkg-up="pkg-in"
     alias pkg-ar="sudo $PKG -Qdtq | $PKG -Rs -"
     alias pkg-u="pkg-up"
     alias pkg-ug="pkg-up"
