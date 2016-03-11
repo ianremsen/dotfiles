@@ -53,6 +53,7 @@ if [ "$PKG" == "pacman" ]; then
     alias pkg-ar="sudo $PKG -Qdtq | $PKG -Rs -"
     alias pkg-u="pkg-up"
     alias pkg-ug="pkg-up"
+    alias pkg-gen="pacman -Qqe | grep -vx "$(pacman -Qqm)" > Packages; pacman -Qqm > Packages.aur"
     unalias pkg-du
 elif [ "$PKG" == "apt-get" ]; then alias pkg-se="apt-cache search"
 elif [ "$PKG" == "apt" ]; then
