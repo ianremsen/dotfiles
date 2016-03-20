@@ -83,8 +83,9 @@ if [ $(uname -a | awk '{print $7;}') == "Cygwin" ]; then
 
     if hash setup-x86_64 2>/dev/null; then
         alias setup="setup-x86_64 -K http://cygwinports.org/ports.gpg"
-        alias cyg-in="setup -qgdnP"
-        alias cyg-rm="setup -qgdnx"
+        alias pkg-in="setup -qgdnP"
+        alias pkg-u="setup -q"
+        alias pkg-rm="setup -qgdnx"
     fi
 
     return
