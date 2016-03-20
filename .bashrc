@@ -19,8 +19,8 @@ esac
 if [ -f "$HOME/.bashspec" ]; then source "$HOME/.bashspec"; fi
 
 HISTCONTROL="ignoreboth"
-HISTSIZE="1000"
-HISTFILESIZE="2000"
+HISTSIZE="5000"
+HISTFILESIZE="2500"
 export HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history"
 shopt -s histappend
 shopt -s autocd
