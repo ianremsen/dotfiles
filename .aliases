@@ -65,7 +65,7 @@ elif [ "$PKG" == "apt" ]; then
     alias pkg-up="pkg-ug"
     alias pkg-ar="sudo apt-get autoremove"
     alias pkg-du="sudo apt-get dist-upgrade"
-elif [ "$PKG" == "pkg" ];     then unalias pkg-du
+elif [ "$PKG" == "pkg" ]; then unalias pkg-du
 elif [ "$PKG" == "yum" ] || [ "$PKG" == "dnf" ]; then
     alias pkg-u="pkg-up"
     unalias pkg-du
